@@ -1,4 +1,6 @@
-<h2>Login</h2>
+{% comment %} By default, the login view looks for a template path {% endcomment %}
+
+<h2>Login</h2>    
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}

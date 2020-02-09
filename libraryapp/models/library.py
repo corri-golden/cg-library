@@ -2,8 +2,8 @@ from django.db import models  #This import is needed for Python classes that are
 
 class Library (models.Model):
 
-    title = models.CharField(max_length=50)
-    address = models.CharField(max_length=50)
+    title = models.CharField(max_length=50)  ## properties for the class
+    address = models.CharField(max_length=50)  ## properties for the class
 
     class Meta:
         verbose_name =("library")
