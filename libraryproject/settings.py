@@ -120,4 +120,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = '/books'
+LOGIN_REDIRECT_URL = '/books'   #This tells Django which URL it should redirect the browser to when the user authenticates
