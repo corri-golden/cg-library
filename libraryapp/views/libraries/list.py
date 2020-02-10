@@ -44,16 +44,16 @@ def library_list(request):
     elif request.method == 'POST':
         form_data = request.POST
 
-    with sqlite3.connect(Connection.db_path) as conn:
-        db_cursor = conn.cursor()
+        with sqlite3.connect(Connection.db_path) as conn:
+            db_cursor = conn.cursor()
 
-        db_cursor.execute("""
-        INSERT INTO libraryapp_library
-        (
-        title, address
-        )
-        VALUES (?, ?)
-        """,
+            db_cursor.execute("""
+            INSERT INTO libraryapp_library
+            (
+            title, address
+            )
+            VALUES (?, ?)
+            """,
 #The values thing above is quality control, protection from bad data injection.
         (form_data['title'], form_data['address']))
 
