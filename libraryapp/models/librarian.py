@@ -1,7 +1,7 @@
-from django.db import models
-from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.dispatch import receiver
+from django.db import models  #This import is needed for Python classes that are modeling a database table
+from django.contrib.auth.models import User  #django user package
+from django.db.models.signals import post_save   #django user package
+from django.dispatch import receiver   #django user package
 from .library import Library
 
 

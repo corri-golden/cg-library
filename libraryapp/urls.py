@@ -14,4 +14,5 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),  #for built in login and logout
     path('logout/', logout_user, name='logout'),  #logout path
     path('book/form', book_form, name='book_form'),
+    path('library/form', library_form, name='library_form'),
 ]
