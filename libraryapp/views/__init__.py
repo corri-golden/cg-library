@@ -5,3 +5,4 @@ from .librarians.list import librarian_list
 from .libraries.list import library_list
 from .books.form import book_form
 from .libraries.form import library_form
+from .books.details import book_details
