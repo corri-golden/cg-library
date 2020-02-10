@@ -1,16 +1,23 @@
-from django.db import models  #This import is needed for Python classes that are modeling a database table
+from django.db import models
 
-class Library (models.Model):
+class Library(models.Model):
 
-    title = models.CharField(max_length=50)  ## properties for the class
-    address = models.CharField(max_length=50)  ## properties for the class
+    title = models.CharField(max_length=50)
+    address = models.CharField(max_length=50)
 
     class Meta:
-        verbose_name =("library")
+        verbose_name = ("library")
         verbose_name_plural = ("libraries")
 
     def __str__(self):
-        return self.name
+        return self.title
 
     def get_absolute_url(self):
-        return reverse("_detail", kwargs={"pk": self.pk})
+        return reverse("library_detail", kwargs={"pk": self.pk})
+
+
+
+
+
+
+

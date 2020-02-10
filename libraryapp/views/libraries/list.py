@@ -2,6 +2,7 @@ import sqlite3
 from django.shortcuts import render
 from libraryapp.models import Librarian
 from ..connection import Connection
+from libraryapp.models import Library
 
 #@login_required
 def library_list(request):
@@ -9,29 +10,32 @@ def library_list(request):
         conn.row_factory = sqlite3.Row
         db_cursor = conn.cursor()
 
+        # db_cursor.execute("""
+        # select
+        #     l.id,
+        #     l.title,
+        #     l.address,
+        # from libraryapp_library l
+        # """)
+
         db_cursor.execute("""
-        select
-            l.id,
-            l.location_id,
-            l.user_id,
-            u.first_name,
-            u.last_name,
-            u.email
-        from libraryapp_librarian l
-        join auth_user u on l.user_id = u.id
+            select
+                l.id,
+                l.title,
+                l.address
+            from libraryapp_library l
         """)
 
         all_libraries = []
         dataset = db_cursor.fetchall()
-
+ 
         for row in dataset:
-            lib = Library()
-            lib = Library()
-            lib.id = row["id"]
-            lib.title = row["title"]
-            lib.address = row["address"]
+            library = Library()
+            library.id = row["id"]
+            library.title = row["title"]
+            library.address = row["address"]
 
-            all_libraries.append(lib)
+            all_libraries.append(library)
 
     template_name = 'libraries/list.html'
 
